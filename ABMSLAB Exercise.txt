@@ -1,0 +1,133 @@
+1............
+declare 
+n number := 1; 
+b number := :Inpyt; 
+begin 
+while n<=b
+loop 
+dbms_output.put_line(n); 
+
+n := n+2; 
+end loop; 
+end;
+
+2.......................
+Declare 
+a1 number(5);
+a2 number(5);
+a3 number(5);
+
+r1 number:= :radius1;
+r2 number:= :radius2;
+r3 number:= :radius3;
+
+pi number(5):= 3.14159;
+
+
+ 
+
+Begin
+a1:= pi*r1*r1;
+a2:= pi*r2*r2;
+a3:= pi*r3*r3;
+
+
+
+
+dbms_output.put_line('The Area of 1st circle  :   ' || a1);
+dbms_output.put_line('The Area of 1st circle  :   ' || a2);
+dbms_output.put_line('The Area of 1st circle  :   ' || a3);
+
+End;
+
+
+
+3.......................................
+declare 
+       num number:= :Input; 
+       i number:=1; 
+       c number:=0; 
+begin 
+       
+       for i in 1..num 
+       loop 
+          if((mod(num,i))=0) 
+           then 
+              c:=c+1; 
+         end if; 
+      end loop; 
+     if(c>2) 
+     then 
+         dbms_output.put_line(num||' not a prime'); 
+     else 
+        dbms_output.put_line(num||' is prime'); 
+     end if; 
+end; 
+
+4.................................
+Declare 
+e number:= :EmpNO;
+hd number(10);
+
+
+e emp.empno%type;
+s emp.HIREDATE%type;
+sl emp.sal%type;
+ 
+
+Begin
+select HIREDATE,sal into s,sl from emp where empno = e ;
+
+dbms_output.put_line('The EMPNO:   ' || e );
+dbms_output.put_line ('The Hiredate:   ' || s);
+dbms_output.put_line ('The Sal:   ' || sl);
+
+hd=sysdate_hiredate/365;
+
+
+if hd >= 7 then
+update emp set sal=sal+(sal*0.05) where empno = e; 
+elsif hd <5 and hd<7 then
+update emp set sal=sal+(sal*0.07) where empno = e; 
+elsif hd <3 and hd<5 then
+update emp set sal=sal+(sal*0.1) where empno = e; 
+elsif hd <3 then
+update emp set sal=sal+(sal*0.12) where empno = e;
+end;
+
+
+End;
+
+
+
+5................................................
+declare
+first number := 0;
+second number := 1;
+temp number;
+ 
+n number := 5;
+i number;
+ 
+begin
+ 
+    dbms_output.put_line('Series:');
+ 
+    dbms_output.put_line(first);
+    dbms_output.put_line(second);
+ 
+    for i in 2..n
+    loop
+        temp:=first+second;
+ 
+first := second;
+second := temp;
+     dbms_output.put_line(temp);
+end loop;
+end;
+
+
+
+
+
+
